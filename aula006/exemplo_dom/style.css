@@ -1,0 +1,25 @@
+body{
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+}
+
+.nao-iniciado{
+    color: gray;
+}
+
+.em-andamento{
+    color: rgb(255, 120, 31);
+}
+
+.concluido{
+    color: blue;
+}
+
+.concluido::after{
+    content: " (Concluído)";
+    background-color: blue;
+    color: white;
+    margin-left: 5px;
+    padding: 2px 4px;
+    font-size: 0.5em;
+}
