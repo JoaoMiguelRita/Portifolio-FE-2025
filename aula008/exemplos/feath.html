@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Sem await
+    const url = 'https://jsonplaceholder.typicode.com/todos/10';
+    fetch(url)
+    then(response => response.json()
+        .then(data => document.body.textContent = data.title)
+        );
+
+    // Com await
+    async function requisicao() {
+        const resposta = await fetch(url);
+        const dados = await resposta.json() 
+        document.body.textContent = dados.title;
+    }
+
+    requisicao() 
+</script>
+</html>

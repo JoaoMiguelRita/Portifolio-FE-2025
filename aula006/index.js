@@ -1,4 +1,4 @@
-conteudo = document.querySelector('#content');
+let conteudo = document.querySelector('#content');
 
 document.querySelector('#btn-add').addEventListener('click', () => {
     const novoImg = document.createElement('img');
@@ -16,6 +16,4 @@ document.querySelector('#btn-add').addEventListener('click', () => {
     conteudo.appendChild(novoImg);
     conteudo.appendChild(novoTitulo);
     conteudo.appendChild(novoDescricao);
-
-    console.log(novoImg);
 });
