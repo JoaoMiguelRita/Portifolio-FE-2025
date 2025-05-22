@@ -1,0 +1,28 @@
+{
+  "movie": [
+    {
+      "id": "1",
+      "titulo": "teste",
+      "ano": 2024,
+      "genero": "A"
+    },
+    {
+      "id": "2",
+      "titulo": "teste2",
+      "ano": 2024,
+      "genero": "b"
+    },
+    {
+      "id": "73a73eec-7884-4f0b-b2db-1039d985e87b",
+      "titulo": "teste",
+      "ano": "teste",
+      "genero": "teste"
+    },
+    {
+      "id": "49577dbd-1c44-4e6f-85be-638a81721af9",
+      "titulo": "teste",
+      "ano": "12312312",
+      "genero": "12wr14"
+    }
+  ]
+}
