@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.app-container{
+  border: 0px solid black;
+  padding: 5px;
+  float: left;
+}
+
+.app-lists{
+  border: 1px solid black;
+  margin-left: 2rem;
+  padding: 5px;
+  float: left;
+}

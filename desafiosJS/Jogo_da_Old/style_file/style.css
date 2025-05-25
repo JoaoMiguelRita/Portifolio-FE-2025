@@ -1,0 +1,99 @@
+/* Tema Claro */
+.light-theme {
+    --bg-color: #fafaeb;
+    --text-color: #111;
+    --content-bg: #fffcee;
+    --cell-bg: #f8f6eb;
+    --cell-border: #ccc;
+    --cell-hover: #e6e6e6;
+    --btn-bg: #dbdbce;
+    --btn-text: #111;
+}
+
+/* Tema Escuro */
+.dark-theme {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --content-bg: #1e1e1e;
+    --cell-bg: #2c2c2c;
+    --cell-border: #444;
+    --cell-hover: #3a3a3a;
+    --btn-bg: #333;
+    --btn-text: #b4b4b4;
+}
+
+/* Aplicando as variáveis */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    height: 50em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.content {
+    text-align: center;
+    background-color: var(--content-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cell {
+    background-color: var(--cell-bg);
+    border: 2px solid var(--cell-border);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: var(--text-color);
+}
+
+.cell:hover {
+    background-color: var(--cell-hover);
+}
+
+.cell.usada {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.status {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 5px;
+    height: 2.3em;
+    transition: background 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}

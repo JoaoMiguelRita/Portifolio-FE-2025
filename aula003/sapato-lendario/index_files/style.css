@@ -1,0 +1,84 @@
+/* Reset de margens */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: 'Arial', sans-serif; /* Escolha de uma fonte */
+}
+
+/* Seção principal */
+main {
+    width: 100%;
+    max-width: 1000px; /* Limite de largura */
+    margin: 0 auto; /* Centraliza */
+    padding: 20px;
+}
+
+/* Título */
+h2 {
+    color: rgb(47, 119, 28);
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+/* Alinhamento dos itens com Flexbox */
+.alinhamento {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Estilo de cada caixa na seção "alinhamento" */
+.alinhamento div {
+    flex-basis: 250px; /* Tamanho mínimo de 250px */
+    text-align: center;
+}
+
+/* Imagem dentro da caixa */
+.alinhamento img {
+    border: 0.2em solid black;
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Garantir que a imagem ocupe totalmente a caixa */
+    margin-bottom: 10px;
+}
+
+/* Descrição dos alinhamentos */
+.descricao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Estilo de cada caixa na seção "descricao" */
+.descricao div {
+    flex-basis: 200px; /* Tamanho mínimo de 200px */
+    padding: 2rem;
+    margin: 1rem;
+    background-color: rgb(170, 245, 151);
+}
+
+/* Justificar texto dentro das caixas de descrição */
+.descricao p {
+    text-align: justify;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .alinhamento div, .descricao div {
+        flex-basis: 100%; /* Cada item ocupa a largura inteira em telas menores */
+    }
+
+    .alinhamento {
+        flex-direction: column;
+        align-items: center;
+    }
+}

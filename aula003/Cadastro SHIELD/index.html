@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro SHIELD</title>
+</head>
+<body>
+    <form method="POST" action="http://venson.net.br:2503/register">
+        <p>
+            <label for="name">Nome</label>
+            <input name="name" type="text" placeholder="Ex: Capitão América" required>
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input name="email" type="email" placeholder="Ex: primeirovingador@marvel.com" required>
+        </p>
+        <p>
+            <label for="birthday">Data de Aniversário</label>
+            <input name="birthday" type="date" required>
+        </p>
+        <p>
+            <label for="alter_ego">Alter ego</label>
+            <input name="alter_ego" type="text" placeholder="Ex: Bucky" required>
+        </p>
+        <p>
+            <label for="tel">Telefone</label>
+            <input name="tel" type="tel" placeholder="Ex: 40028922" required>
+        </p>
+        <p>
+            <label for="employment">Ocupação</label>
+            <input name="employment" type="text" placeholder="Ex: Falecido" required>
+        </p>
+        <p>
+            <label for="zone">Zona de Atuação</label>
+            <select name="zone" required>
+                <option value="" disabled selected>Escolha uma opção</option>
+                <option value="Nova York">Nova York</option>
+                <option value="Asgard">Asgard</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Londres">Londres</option>
+            </select>
+        </p>
+        <p>
+            <label for="color">Cor preferida</label>
+            <input name="color" type="text" placeholder="Ex: Azul e vermelho" required>
+        </p>
+        <p>
+            <label for="obs">Observações</label>
+            <input name="obs" type="text" placeholder="Ex: Avangers Assemble!" required>
+        </p>
+        <p>
+            <label for="human">Humano</label>
+            <select name="human" required>
+                <option value="" disabled selected>Escolha uma opção</option>
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+            </select>    
+        </p>
+        <input type="hidden" name="version" value="1.0">
+
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpar</button>
+    </form>
+</body>
+</html>
