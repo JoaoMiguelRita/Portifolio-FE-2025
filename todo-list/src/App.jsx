@@ -2,32 +2,38 @@ import { useEffect, useState } from 'react'
 import TodoForms from './components/TodoForms';
 import TodoList from './components/TodoList'
 import { v4 as uuidv4} from 'uuid';
+import axios from 'axios';
 
 export default function App() {
-  const [todoList, setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [])
+  /* const [todoList, setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []) */
+
+  const [todoList, setTodoList] = useState([])
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todoList));
+    axios.get('http://localhost:3000/tarefas').then(
+      response => {
+        setTodoList(response.data)
+      }
+    )
   }, [todoList]);
 
   const handleAddTodo = (newTodo) => {
     newTodo.id = uuidv4()
-    setTodoList([...todoList, newTodo])
+    axios.post('http://localhost:3000/tarefas', newTodo)
   }
 
   const handleDeleteTodo = (id) => {
-    console.log("Deletando " + id)
-    setTodoList(todoList.filter(todo => todo.id !== id))
+    axios.delete(`http://localhost:3000/tarefas/${id}`)
   }
 
   const handleConcluirTodo = (id) => {
-    setTodoList(todoList.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, concluido: !todo.concluido }
-      }
-      return todo
-    }))
+    axios.patch(`http://localhost:3000/tarefas/${id}`, {concluido: true})
   }
+
+  const handleEditarTodo = (id, editando) => {
+    axios.patch(`http://localhost:3000/tarefas/${id}`, editando)
+  }
+
 
   return (
     <>
@@ -38,6 +44,7 @@ export default function App() {
           todoList={todoList}
           onDelete={handleDeleteTodo}
           onConclude={handleConcluirTodo}
+          onEdit={handleEditarTodo}
         />
     </div>
     </>

@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-export default function TodoList({todoList, onDelete, onConclude}) {
+export default function TodoList({todoList, onDelete, onConclude, onEdit}) {
     return (
         <div className="todo-list">
             {todoList.map(todo => <TodoItem
@@ -8,6 +8,7 @@ export default function TodoList({todoList, onDelete, onConclude}) {
                 todo={todo} 
                 onDelete={onDelete}
                 onConclude={onConclude}
+                onEdit={onEdit}
             />)}
         </div>
     )
