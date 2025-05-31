@@ -1,6 +1,6 @@
 import MovieItem from "./MovieItem";
 
-export default function MovieList({movieList, onDelete, onConclude, onFavorite}){
+export default function MovieList({movieList, onDelete, onConclude, onFavorite, onEdit}){
     return(
         <div className="movie-list">
             {
@@ -10,6 +10,7 @@ export default function MovieList({movieList, onDelete, onConclude, onFavorite})
                     onDelete={onDelete}
                     onConclude={onConclude}
                     onFavorite={onFavorite}
+                    onEdit={onEdit}
                 />)
             }
         </div>

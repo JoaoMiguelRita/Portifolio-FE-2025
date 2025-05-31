@@ -41,6 +41,10 @@ function App() {
     } 
   }
 
+  const handleEditarMovie = (id, newMovie) => {
+    axios.patch(`http://localhost:3000/movie/${id}`, newMovie)
+  }
+
 
 
   return (
@@ -53,6 +57,7 @@ function App() {
           onDelete={handleDeleteMovie}
           onConclude={handleConcluirMovie}
           onFavorite={handleFavoritarMovie}
+          onEdit={handleEditarMovie}
         ></MovieList>
       </div>
 
@@ -64,6 +69,7 @@ function App() {
             onDelete={handleDeleteMovie}
             onConclude={handleConcluirMovie}
             onFavorite={handleFavoritarMovie}
+            onEdit={handleEditarMovie}
           />
         </div>  
         <div>
@@ -73,6 +79,7 @@ function App() {
             onDelete={handleDeleteMovie}
             onConclude={handleConcluirMovie}
             onFavorite={handleFavoritarMovie}
+            onEdit={handleEditarMovie}
           />
         </div>
         <div>
@@ -82,6 +89,7 @@ function App() {
             onDelete={handleDeleteMovie}
             onConclude={handleConcluirMovie}
             onFavorite={handleFavoritarMovie}
+            onEdit={handleEditarMovie}
           />
         </div>
       </div>
