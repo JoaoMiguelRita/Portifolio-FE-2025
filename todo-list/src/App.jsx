@@ -1,52 +1,27 @@
-import { useEffect, useState } from 'react'
-import TodoForms from './components/TodoForms';
-import TodoList from './components/TodoList'
-import { v4 as uuidv4} from 'uuid';
-import axios from 'axios';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import TodoSobre from './pages/TodoSobre';
+import TodoPage from './pages/TodoPage';
+import DefaultLayout from './layouts/DefaultLayout';
 
 export default function App() {
-  /* const [todoList, setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []) */
-
-  const [todoList, setTodoList] = useState([])
-
-  useEffect(() => {
-    axios.get('http://localhost:3000/tarefas').then(
-      response => {
-        setTodoList(response.data)
-      }
-    )
-  }, [todoList]);
-
-  const handleAddTodo = (newTodo) => {
-    newTodo.id = uuidv4()
-    axios.post('http://localhost:3000/tarefas', newTodo)
-  }
-
-  const handleDeleteTodo = (id) => {
-    axios.delete(`http://localhost:3000/tarefas/${id}`)
-  }
-
-  const handleConcluirTodo = (id) => {
-    axios.patch(`http://localhost:3000/tarefas/${id}`, {concluido: true})
-  }
-
-  const handleEditarTodo = (id, editando) => {
-    axios.patch(`http://localhost:3000/tarefas/${id}`, editando)
-  }
-
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <DefaultLayout />,
+      children: [
+        {
+          path: "/",
+          element: <TodoPage />
+        },
+        {
+          path: "/sobre", 
+          element: <TodoSobre />
+        }
+      ]
+    }
+  ]);
 
   return (
-    <>
-      <div className="app-container">
-        <h1>📝 To-Do List</h1>
-        <TodoForms onAddTodo={handleAddTodo}></TodoForms>
-        <TodoList
-          todoList={todoList}
-          onDelete={handleDeleteTodo}
-          onConclude={handleConcluirTodo}
-          onEdit={handleEditarTodo}
-        />
-    </div>
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
